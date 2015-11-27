@@ -1,6 +1,3 @@
-var canvas = document.getElementById('canvas'),
-    context = canvas.getContext('2d');
-
 /*
     두점의 좌표가 주어졌을 때 기울기
 
@@ -10,7 +7,8 @@ var canvas = document.getElementById('canvas'),
 
 function slopeBetweenPoints(pt1, pt2)
 {
-    return (pt2.y - pt1.y) / (pt2.x - pt1.x);
+    var value = (pt2.y - pt1.y) / (pt2.x - pt1.x);
+    return value == Infinity ? 0 : value;
 }
 
 /*
@@ -66,7 +64,7 @@ function getRoot(pt1, pt2, pt11, pt22)
 
     if(slope1 !== slope2)
     {
-        return "one root"
+        return "one root";
     }
     else
     {
@@ -75,13 +73,37 @@ function getRoot(pt1, pt2, pt11, pt22)
 
         if(intercept1 === intercept2)
         {
-            return "much root"
+            return "much root";
         }
         else
         {
-            return "no root"
+            return "no root";
         }
     }
 }
 
-console.log(getRoot({x:1, y:1}, {x:2, y:2}, {x:2, y:3}, {x:4, y:5}));
+/*
+    두쌍의 점의 정보로 직선의 교차점을 찾는다. (단, 한개의 해가 있을 경우)
+
+    입력 : 점1, 점2, 점11, 점22
+    출력 : 점 { x, y }
+ */
+function lineIntersect(pt1, pt2, pt11, pt22)
+{
+    var value = { };
+
+    var slope1 = slopeBetweenPoints(pt1, pt2);
+    var slope2 = slopeBetweenPoints(pt11, pt22);
+
+    if(slope1 !== slope2)
+    {
+        value.x = (slope1 * pt1.x - slope2 * pt11.x + pt11.y - pt1.y) / (slope1 - slope2);
+        value.y = slope1 * (value.x - pt1.x) + pt1.y;
+    }
+
+    return value;
+}
+
+var obj = lineIntersect({x:2, y:5}, {x:2, y:6}, {x:1, y:4}, {x:3, y:9});
+
+console.log(obj.x, obj.y);
