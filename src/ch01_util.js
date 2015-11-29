@@ -4,6 +4,12 @@
     입력 : 직선 상의 두점
     출력 : 직선의 기울기
  */
+/*
+ 두 점의 기울기 구하기
+
+ 입력 : 두 점
+ 출력 : 기울기
+ */
 
 function slopeBetweenPoints(pt1, pt2)
 {
@@ -97,13 +103,9 @@ function lineIntersect(pt1, pt2, pt11, pt22)
 
     if(slope1 !== slope2)
     {
-        value.x = (slope1 * pt1.x - slope2 * pt11.x + pt11.y - pt1.y) / (slope1 - slope2);
-        value.y = slope1 * (value.x - pt1.x) + pt1.y;
+        value.x = Math.round((slope1 * pt1.x - slope2 * pt11.x + pt11.y - pt1.y) / (slope1 - slope2));
+        value.y = Math.round(slope1 * (value.x - pt1.x) + pt1.y);
     }
 
     return value;
 }
-
-var obj = lineIntersect({x:2, y:5}, {x:2, y:6}, {x:1, y:4}, {x:3, y:9});
-
-console.log(obj.x, obj.y);
