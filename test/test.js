@@ -1,3 +1,23 @@
+// html async 테스트
+/*
+QUnit.test("html 테스트", function(assert)
+{
+    var done = assert.async();
+
+    document.body.innerHTML = __html__['test/htmlTest.html'];
+
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+
+    context.fillRect(20, 20, 150, 100);
+
+    canvas.addEventListener('mousedown', function(e)
+    {
+        assert.ok(true);
+        done();
+    });
+});
+*/
 // ch01
 QUnit.test("기울기 구하기", function(assert)
 {
@@ -122,6 +142,3 @@ QUnit.test("두 벡터의 외적", function(assert)
     var value = outerProduct({x:5, y:-6, z:0}, {x:1, y:2, z:3});
     assert.deepEqual({x:-18, y:-15, z:16}, value);
 });
-
-// ch05
-
