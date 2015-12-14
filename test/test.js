@@ -1,23 +1,45 @@
 // html async 테스트
-/*
+
+QUnit.module('Example', {
+    setup : function(){
+        document.body.innerHTML = __html__['test/htmlTest.html'];
+    },
+
+    teardown : function(){
+    }
+});
+
+
 QUnit.test("html 테스트", function(assert)
 {
     var done = assert.async();
-
-    document.body.innerHTML = __html__['test/htmlTest.html'];
-
-    var canvas = document.getElementById("myCanvas");
+    var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
 
+    context.fillStyle = 'blue';
     context.fillRect(20, 20, 150, 100);
 
-    canvas.addEventListener('mousedown', function(e)
-    {
+    canvas.addEventListener('mousedown', function() {
         assert.ok(true);
         done();
-    });
+    })
+
 });
-*/
+QUnit.test("html 테스트2", function(assert)
+{
+    var done = assert.async();
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.fillStyle = 'red';
+    context.fillRect(20, 20, 150, 100);
+
+    canvas.addEventListener('mousedown', function() {
+        assert.ok(true);
+        done();
+    })
+});
+
 // ch01
 QUnit.test("기울기 구하기", function(assert)
 {
