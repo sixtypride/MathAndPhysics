@@ -9,7 +9,7 @@ QUnit.module('Example', {
     }
 });
 
-
+/*
 QUnit.test("html 테스트", function(assert)
 {
     var done = assert.async();
@@ -39,7 +39,7 @@ QUnit.test("html 테스트2", function(assert)
         done();
     })
 });
-
+*/
 // ch01
 QUnit.test("기울기 구하기", function(assert)
 {

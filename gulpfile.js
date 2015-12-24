@@ -7,7 +7,7 @@ var livereload = require('gulp-livereload');
 //...
 
 var paths = {
-    scripts: 'src/*.js'
+    scripts: 'src/util/*.js'
 };
 
 gulp.task('combine-js', function () {
@@ -21,7 +21,7 @@ gulp.task('combine-js', function () {
 gulp.task('watch', function() {
     livereload.listen();
     gulp.watch(paths.scripts, ['combine-js']);
-    gulp.watch('src/**').on('change', livereload.changed);
+    gulp.watch('src/util/**').on('change', livereload.changed);
 });
 
 //...

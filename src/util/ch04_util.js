@@ -10,6 +10,7 @@ function polarToCompConversion2D(vec)
 {
     var value = { };
 
+
     value.x = vec.mag * Math.cos(degreeToRadian(vec.dir));
     value.y = vec.mag * Math.sin(degreeToRadian(vec.dir));
 

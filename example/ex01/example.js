@@ -37,8 +37,8 @@ function lineIntersect(lineInfo0, lineInfo1) {
     var slope1 = slopeBetweenPoints(lineInfo1);
 
     if (slope0 !== slope1) {
-        pt.x = Math.round((slope0 * lineInfo0.start.x - slope1 * lineInfo1.start.x + lineInfo1.start.y - lineInfo0.start.y) / (slope0 - slope1));
-        pt.y = Math.round(slope0 * (pt.x - lineInfo0.start.x) + lineInfo0.start.y);
+        pt.x = (slope0 * lineInfo0.start.x - slope1 * lineInfo1.start.x + lineInfo1.start.y - lineInfo0.start.y) / (slope0 - slope1);
+        pt.y = slope0 * (pt.x - lineInfo0.start.x) + lineInfo0.start.y;
 
         return pt;
     }

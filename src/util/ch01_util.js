@@ -1,4 +1,4 @@
-//-p:4-
+//-p:6-
 
 /*
  두 점의 기울기 구하기
@@ -6,7 +6,6 @@
  입력 : 두 점
  출력 : 기울기
  */
-
 function slopeBetweenPoints(pt1, pt2)
 {
     var value = (pt2.y - pt1.y) / (pt2.x - pt1.x);
