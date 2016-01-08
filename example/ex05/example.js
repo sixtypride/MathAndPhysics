@@ -52,11 +52,12 @@ function loop() {
         var arrow = arrows[i];
 
         arrow.angle = Math.atan2(arrow.vy, arrow.vx);
-        arrow.x += arrow.vx;
         arrow.vy += arrow.gravity;
+        arrow.x += arrow.vx;
         arrow.y += arrow.vy;
 
         arrow.draw();
+
 
         if (arrow.x < 0 - 100 ||
             arrow.x > canvas.width + 100 ||

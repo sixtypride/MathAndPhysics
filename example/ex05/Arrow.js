@@ -23,11 +23,6 @@ Arrow.prototype = {
         this._context.fillStyle = "gray";
         this._context.fillRect(-this.width, -this.height / 2, this.width, this.height);
 
-        this._context.beginPath();
-        this._context.arc(0,0, 5, 0, Math.PI * 2);
-        this._context.fillStyle = "blue";
-        this._context.fill();
-
         this._context.restore();
     }
 }

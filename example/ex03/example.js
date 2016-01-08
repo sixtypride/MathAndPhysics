@@ -18,14 +18,13 @@ function animate() {
     context.clearRect(0,0, canvas.width, canvas.height);
     context.save();
 
-    angle += 1;
+    angle += 10;
 
-    if(angle >= 180)
+    if(angle >= 360)
     {
         angle = 0;
     }
-    console.log(Math.tan(angle * Math.PI/180) * 0.1);
-    context.transform(1, Math.tan(angle * Math.PI/180) * 0.1, Math.tan(angle * Math.PI/180) * 0.1, 1, x + width/2, y + height/2);
+    context.transform(1, Math.cos(angle * Math.PI/180), Math.sin(angle * Math.PI/180), 1, x + width/2, y + height/2);
     x = -width/2;
     y = -height/2;
     context.fillRect(x, y, width, height);
